@@ -1,0 +1,64 @@
+
+{% extends  'base.html' %}
+
+{% block title %}
+
+<title>student</title>
+
+{% endblock title %}
+
+{% block content %}
+
+<h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">students Information</h1>
+
+<table class="table table-striped">
+
+<thead>
+
+<tr>
+
+<th scope="col">Name</th>
+
+<th scope="col">Nikname</th>
+
+<th scope="col">age</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for stu in students %}
+
+<tr>
+
+<th scope="row">{{ stu.name}}</th>
+
+<td>{{ stu.nikname }}</td>
+<td>{{ stu.age }}</td>
+
+<td>
+
+<a style="margin-right: 30px;" href="{% url 'edit-student' stu.id%}">Edit</a>
+
+<a href="{% url 'delete-student' stu.id %}">Remove</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+<div class="text-center">
+
+<a href="{% url 'create-student' %}"><button type="button" class="btn btn-primary">Add New Info</button></a>
+
+</div>
+
+{% endblock content %}
+        
